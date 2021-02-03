@@ -11,8 +11,8 @@ class Asteroid {
     //     
     // }
     static moveAsteroid() {
-        let rock = document.getElementById("asteroid1")
-        setInterval (function () {
+        let rock = document.getElementById(`asteroid${Helpers.getRndInteger(1, 7)}`)
+        let timer = setInterval (function () {
             let topNumbers = rock.style.top.replace("px", "")
             let top = parseInt(topNumbers, 10)
             
@@ -22,7 +22,7 @@ class Asteroid {
             else if (top >= 510) {
                 clearInterval(timer);
             }
-        }, 500);
+        }, 200);
     }
 }
 
