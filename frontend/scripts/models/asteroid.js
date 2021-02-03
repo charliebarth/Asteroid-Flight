@@ -12,17 +12,18 @@ class Asteroid {
     // }
     static moveAsteroid() {
         let rock = document.getElementById(`asteroid${Helpers.getRndInteger(1, 7)}`)
+        let movement = Helpers.getRndInteger(2, 6)
         let timer = setInterval (function () {
             let topNumbers = rock.style.top.replace("px", "")
             let top = parseInt(topNumbers, 10)
             
             if (top < 510) {
-                rock.style.top = `${top + 4}px`
+                rock.style.top = `${top + movement}px`
+            } else if (top >= 510) {
+                //clearInterval(timer);
+                rock.style.top = "50px"
             }
-            else if (top >= 510) {
-                clearInterval(timer);
-            }
-        }, 200);
+        }, 100);
     }
 }
 
