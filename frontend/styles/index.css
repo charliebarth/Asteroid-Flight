@@ -1,18 +1,18 @@
-#spaceship {
-    background-color: white;
-    height: 20px;
+  #spaceship {
+    height: 40px;
     position: absolute;
     width: 40px;
-  }
+}
   
   #game {
     background-color: #111;
-    height: 400px;
+    height: 550px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
     text-align: center;
-    width: 400px;
+    width: 800px;
+    /* background-image: url('../assets/stars_two.gif'); background-repeat:repeat; */
   }
   
   #start {
