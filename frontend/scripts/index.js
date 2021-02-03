@@ -1,17 +1,34 @@
-document.addEventListener("keydown", function(e) {
-    if (e.key === "ArrowLeft") {
+let keysPressed = {};
+
+document.addEventListener('keyup', (e) => {
+    delete keysPressed[e.key];
+});
+
+document.addEventListener('keydown', (e) => {
+    keysPressed[e.key] = true;
+    if (keysPressed['ArrowLeft'] && e.key == 'ArrowUp' || keysPressed['ArrowUp'] && e.key == 'ArrowLeft') {
         Spaceship.moveDodgerLeft();
-    }
-    if (e.key === "ArrowRight"){
-        Spaceship.moveDodgerRight();
-    }
-    if (e.key === "ArrowUp"){
         Spaceship.moveDodgerUp();
-    }
-    if (e.key === "ArrowDown"){
+    } else if (keysPressed['ArrowLeft'] && e.key == 'ArrowDown'|| keysPressed['ArrowDown'] && e.key == 'ArrowLeft') {
+        Spaceship.moveDodgerLeft();
         Spaceship.moveDodgerDown();
-    }
-    if (e.key === "Enter"){
+    } else if (keysPressed['ArrowRight'] && e.key == 'ArrowUp'|| keysPressed['ArrowUp'] && e.key == 'ArrowRight') {
+        Spaceship.moveDodgerRight();
+        Spaceship.moveDodgerUp();
+    } else if (keysPressed['ArrowRight'] && e.key == 'ArrowDown'|| keysPressed['ArrowDown'] && e.key == 'ArrowRight') {
+        Spaceship.moveDodgerRight();
+        Spaceship.moveDodgerDown();
+    } else if (e.key === "ArrowLeft") {
+        Spaceship.moveDodgerLeft();
+    } else if (e.key === "ArrowRight"){
+        Spaceship.moveDodgerRight();
+    } else if (e.key === "ArrowUp"){
+        Spaceship.moveDodgerUp();
+    } else if (e.key === "ArrowDown"){
+        Spaceship.moveDodgerDown();
+    } else if (e.key === "Enter"){
         Asteroid.moveAsteroid();
     }
 });
+
+
