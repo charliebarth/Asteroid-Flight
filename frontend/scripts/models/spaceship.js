@@ -19,7 +19,7 @@ class Spaceship {
     let leftNumbers = spaceship.style.left.replace("px", "")
     let left = parseInt(leftNumbers, 10)
 
-    if (left < 360) {
+    if (left < 760) {
       spaceship.style.left = `${left + 4}px`
     }
   }
@@ -29,7 +29,7 @@ class Spaceship {
     let leftNumbers = spaceship.style.bottom.replace("px", "")
     let left = parseInt(leftNumbers, 10)
   
-    if (left < 375) {
+    if (left < 505) {
       spaceship.style.bottom = `${left + 4}px`
     }
   }
