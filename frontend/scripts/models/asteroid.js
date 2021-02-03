@@ -11,16 +11,18 @@ class Asteroid {
     //     
     // }
     static moveAsteroid() {
-        setTimeout(function(){
-            let rock = document.getElementById("asteroid1")
+        let rock = document.getElementById("asteroid1")
+        setInterval (function () {
             let topNumbers = rock.style.top.replace("px", "")
             let top = parseInt(topNumbers, 10)
-    
+            
             if (top < 510) {
                 rock.style.top = `${top + 4}px`
             }
-    
-            return top
-        }, 500)
+            else if (top >= 510) {
+                clearInterval(timer);
+            }
+        }, 500);
     }
 }
+

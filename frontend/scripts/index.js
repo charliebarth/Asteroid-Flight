@@ -8,10 +8,10 @@ document.addEventListener("keydown", function(e) {
     if (e.key === "ArrowUp"){
         Spaceship.moveDodgerUp();
     }
-    // if (e.key === "ArrowDown"){
-    //     Spaceship.moveDodgerDown();
-    // }
     if (e.key === "ArrowDown"){
-        Game.startGame();
+        Spaceship.moveDodgerDown();
+    }
+    if (e.key === "Enter"){
+        Asteroid.moveAsteroid();
     }
 });
