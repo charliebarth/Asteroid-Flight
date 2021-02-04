@@ -4,6 +4,12 @@
     width: 40px;
 }
 
+#GameOver {
+    height: 40px;
+    position: absolute;
+    width: 100px;
+}
+
 #asteroid1 {
     height: 40px;
     position: absolute;
