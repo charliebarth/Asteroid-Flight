@@ -1,15 +1,11 @@
 class Asteroid {
-    // static moveAsteroid() {
-    //     // let rock = document.getElementById(`asteroid${Helpers.applygetRndInteger(1, 6)}`)
-    //     let rock = document.getElementById("asteroid1")
-    //     let nums = rock.style.top.replace("px", "")
-    //     let place = parseInt(nums, 10)
-    
-    //     if (place > ) {
-    //       rock.style.top = `${place + 4}px`
-    //     }
-    //     
-    // }
+    constructor(star){
+        this._width = star.style.width
+        this._hieght = star.style.hieght
+        this._x = star.style.left
+        this._y = star.style.bottom
+    }
+
     static moveAsteroid() {
         let rock = document.getElementById(`asteroid${Helpers.getRndInteger(1, 7)}`)
         let movement = Helpers.getRndInteger(2, 6)
