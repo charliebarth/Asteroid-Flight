@@ -36,7 +36,7 @@ class Asteroid {
                 rock._top = (rock._height + rock._bottom);
 
                 objPlace.style.bottom = `${rock._bottom - movement}px`
-                //Helpers.findCollision(rock)
+                Helpers.findCollision(objPlace, rock)
             
             } else if (rock._bottom <= 20) {
                 rock._bottom = 470
