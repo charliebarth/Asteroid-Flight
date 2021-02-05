@@ -5,7 +5,7 @@ class Spaceship {
 //   }
 
   static moveDodgerLeft() {
-    let spaceship = document.getElementById("spaceship")
+    const spaceship = document.getElementById("spaceship")
     let leftNumbers = spaceship.style.left.replace("px", "");
     let left = parseInt(leftNumbers, 10);
 
