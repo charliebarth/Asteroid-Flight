@@ -6,17 +6,6 @@ class Helpers {
     static findCollision(htmlElement, asteroid) {
         const box = document.getElementById("GameOver");
        
-        // const shipStyle = getComputedStyle(document.getElementById("spaceship"))
-    
-        // const shipWidth = parseInt(shipStyle.width.replace("px", ""), 10)
-        // const shipHeight = parseInt(shipStyle.height.replace("px", ""), 10)
-        // const shipLeft = parseInt(shipStyle.left.replace("px", ""), 10)
-        // const shipBottom = parseInt(shipStyle.bottom.replace("px", ""), 10)
-        
-        // const shipRight = (shipLeft - shipWidth);
-        // const shipTop = (shipHeight + shipBottom);
-
-        // let overlap = (star._right < shipLeft || star._left > shipRight || star._bottom < shipTop || star._top > shipBottom)
         const ship = document.getElementById("spaceship");
         let rect1 = htmlElement.getBoundingClientRect();
         let rect2 = ship.getBoundingClientRect();
@@ -32,8 +21,4 @@ class Helpers {
             box.style.left = "400px"
         }
     }
-
-
-
-
 }
