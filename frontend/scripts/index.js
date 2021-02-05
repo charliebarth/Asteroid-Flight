@@ -1,4 +1,5 @@
-let keysPressed = {};
+const keysPressed = {};
+const asteroidOne = new Asteroid(document.getElementById("asteroid1"));
 
 document.addEventListener('keyup', (e) => {
     delete keysPressed[e.key];
@@ -27,7 +28,7 @@ document.addEventListener('keydown', (e) => {
     } else if (e.key === "ArrowDown"){
         Spaceship.moveDodgerDown();
     } else if (e.key === "Enter"){
-        Asteroid.moveAsteroid();
+        asteroidOne.moveAsteroid();
     }
 });
 
