@@ -1,8 +1,18 @@
 class Spaceship {
 
-//   constructor(){
-//       this._display 
-//   }
+  // constructor(ship){
+  //   const shipStyle = getComputedStyle(ship)
+  //   this.name = ship.id
+
+  //   this._width = parseInt(shipStyle.width.replace("px", ""), 10)
+  //   this._height = parseInt(shipStyle.height.replace("px", ""), 10)
+  //   this._left = parseInt(shipStyle.left.replace("px", ""), 10)
+  //   this._bottom = parseInt(shipStyle.bottom.replace("px", ""), 10)
+    
+  //   this._right = (this._left - this._width);
+  //   this._top = (this._height + this._bottom);
+    
+  // }
 
   static moveDodgerLeft() {
     const spaceship = document.getElementById("spaceship")
