@@ -1,23 +1,29 @@
 class Asteroid {
     constructor(star){
-        this._width = star.style.width
-        this._hieght = star.style.hieght
-        this._x = star.style.left
-        this._y = star.style.bottom
+        const starStyle = getComputedStyle(star)
+        this.name = star.id
+        this._width = starStyle.width
+        this._hieght = starStyle.height
+        this._left = starStyle.left
+        this._bottom = starStyle.bottom
+        this._collided = false
     }
 
-    static moveAsteroid() {
-        let rock = document.getElementById(`asteroid${Helpers.getRndInteger(1, 7)}`)
-        let movement = Helpers.getRndInteger(2, 6)
+    moveAsteroid() {
+        let movement = Helpers.getRndInteger(2, 6);
+        const objPlace = document.getElementById(`${this.name}`)
+        const rock = this;
         let timer = setInterval (function () {
-            let topNumbers = rock.style.top.replace("px", "")
-            let top = parseInt(topNumbers, 10)
-            
-            if (top < 510) {
-                rock.style.top = `${top + movement}px`
-            } else if (top >= 510) {
-                //clearInterval(timer);
-                rock.style.top = "50px"
+            let topNumbers = rock._bottom.replace("px", "")
+            let xPlace = parseInt(topNumbers, 10)
+            if (rock._collided === true) {
+                clearInterval(timer);
+            } else if (xPlace > 20) {
+                rock._bottom = `${xPlace - movement}px`
+                objPlace.style.bottom = `${xPlace - movement}px`
+            } else if (xPlace <= 20) {
+                rock._bottom = "470px"
+                objPlace.style.bottom = "470px"
             }
         }, 100);
     }
