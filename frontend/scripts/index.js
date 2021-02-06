@@ -1,5 +1,7 @@
 const keysPressed = {};
-const asteroidOne = new Asteroid(document.getElementById("asteroid1"));
+// const asteroidOne = new Asteroid(document.getElementById("asteroid1"));
+// const asteroidTwo = new Asteroid(document.getElementById("asteroid2"));
+// const asteroidThree = new Asteroid(document.getElementById("asteroid3"));
 
 document.addEventListener('keyup', (e) => {
     delete keysPressed[e.key];
@@ -28,7 +30,10 @@ document.addEventListener('keydown', (e) => {
     } else if (e.key === "ArrowDown"){
         Spaceship.moveDodgerDown();
     } else if (e.key === "Enter"){
-        asteroidOne.moveAsteroid();
+        Game.startGame();
+        // asteroidOne.moveAsteroid();
+        // asteroidTwo.moveAsteroid();
+        // asteroidThree.moveAsteroid();
     }
 });
 
