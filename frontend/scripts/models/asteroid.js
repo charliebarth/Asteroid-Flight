@@ -15,7 +15,7 @@ class Asteroid {
     }
 
     moveAsteroid() {
-        let movement = Helpers.getRndInteger(2, 6);
+        let movement = Helpers.getRndInteger(4, 7);
 
         const objPlace = document.getElementById(`${this.name}`);
         const starStyle = getComputedStyle(objPlace);
@@ -24,6 +24,7 @@ class Asteroid {
         let timer = setInterval (function () {
 
             if (rock._collided === true) {
+                objPlace.style.bottom = `${rock._bottom - 20}px`
                 clearInterval(timer);
             
             } else if (rock._bottom > 20) {
@@ -41,6 +42,8 @@ class Asteroid {
             } else if (rock._bottom <= 20) {
                 rock._bottom = 470
                 objPlace.style.bottom = "470px"
+                objPlace.style.left = `${Helpers.getRndInteger(60, 741)}px`
+                movement = Helpers.getRndInteger(4, 7);
             }
         }, 100);
     }
