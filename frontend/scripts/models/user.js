@@ -12,12 +12,13 @@ class User {
         .then(userData => {
           this.updateInfo(userData.data)
         })
-        newGame.createGame(this._id);
     }
     
     updateInfo = data => {
         this._id = data.id
         this.username = data.attributes.name
+        currentUser = this
+        newGame.createGame(currentUser._id);
     }
 
     static login (event) {

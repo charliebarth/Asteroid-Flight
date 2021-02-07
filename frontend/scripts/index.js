@@ -1,5 +1,6 @@
 const api = API.startWithPort()
 const newGame = new Game
+let currentUser = ""
 let currentGame = ""
 let num = 0
 const gameDiv = document.getElementById("game")
