@@ -1,7 +1,7 @@
-// const keysPressed = {};
-// const game = document.getElementById("game")
-// document.addEventListener("DOMContentLoaded", function(){
-//     game.style.display = 'none'; 
+const game = document.getElementById("game")
+const asteroidArray = []
+document.addEventListener("DOMContentLoaded", function(){
+    game.style.display = 'none'; 
 //     Welcome.loop();
 
 //     usernameInput.focus()
@@ -13,7 +13,7 @@
   
 //       resetCounter()
 //     })
-//  });
+});
 
 // document.addEventListener('keyup', (e) => {
 //     delete keysPressed[e.key];
@@ -42,7 +42,7 @@ document.addEventListener('keydown', (e) => {
     // } else if (e.key === "ArrowDown"){
     //     Spaceship.moveDodgerDown();
     if (e.key === "Enter"){
-        // game.style.display = 'block';
+        game.style.display = 'block';
         Game.launchGame();
     }
 });
