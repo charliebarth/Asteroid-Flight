@@ -18,7 +18,7 @@ class Helpers {
         if (overlap === false) {
             asteroid._collided = true
             box.style.top = "200px"
-            box.style.left = "400px"
+            box.style.right = "400px"
         }
     }
 }
