@@ -12,11 +12,11 @@ class User {
         .then(userData => {
           this.updateInfo(userData.data)
         })
-        
+        currentGame.createGame(this._id);
     }
     
     updateInfo = data => {
-        this.id = data.id
+        this._id = data.id
         this.username = data.attributes.name
     }
 
