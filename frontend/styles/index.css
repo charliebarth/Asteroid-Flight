@@ -89,6 +89,20 @@
     width: 800px;
 }
 
+#end-of-game {
+    height: 550px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 800px;
+    background-image: url('../assets/game_over2.png');
+}
+
+#end-score {
+    color: rgb(255, 255, 255);
+}
+
 h2 {
     color: rgb(255, 255, 255);
 }

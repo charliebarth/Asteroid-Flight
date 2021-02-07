@@ -15,15 +15,23 @@
   <link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 <body>
+
   <div id="login">
     <form id="username-form">
       <h2>Type your username and press <span class="red">Enter</span></h2>
       <input id="username-input" type="text" value="">
     </form>
   </div>
+
   <div id="start">
     <img id="button" src="assets/start-button.png" style="bottom: 280px; left: 298px;" alt="alternatetext" onclick="Game.startButton()">
   </div>
+
+  <div id="end-of-game">
+    <h1>Your Score:</h1>
+    <p id="end-score">Something Broke!</p>
+  </div>
+
   <div id="game">
     <img id="spaceship" src="assets/spaceship3.png" style="bottom: 50px; left: 400px;" alt="alternatetext">
     <img id="asteroid1" src="assets/asteroid1.png" style="bottom: 450px; left: 40px;" alt="alternatetext">
@@ -33,7 +41,8 @@
     <img id="asteroid5" src="assets/asteroid5.png" style="bottom: 450px; left: 520px;" alt="alternatetext">
     <img id="asteroid6" src="assets/asteroid6.png" style="bottom: 450px; left: 640px;" alt="alternatetext">
     <img id="asteroid7" src="assets/asteroid7.png" style="bottom: 450px; left: 720px;" alt="alternatetext">
-    <img id="GameOver" src="assets/game_over.jpg" style="bottom: 50px; right: 40px;" alt="alternatetext">
+    <!-- <img id="GameOver" src="assets/game_over.jpg" style="bottom: 50px; right: 40px;" alt="alternatetext"> -->
   </div>
+
 </body>
 </html>
