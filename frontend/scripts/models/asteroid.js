@@ -2,6 +2,7 @@ class Asteroid {
     constructor(star){
         const starStyle = getComputedStyle(star)
         this.name = star.id
+        this._id = parseInt(star.id[8], 10)
         this._collided = false
 
         this._width = parseInt(starStyle.width.replace("px", ""), 10)
@@ -21,11 +22,12 @@ class Asteroid {
         const starStyle = getComputedStyle(objPlace);
         const rock = this;
 
-        let timer = setInterval (function () {
+        this._move = setInterval (function () {
 
             if (rock._collided === true) {
                 objPlace.style.bottom = `${rock._bottom - 20}px`
-                clearInterval(timer);
+                clearInterval(rock._move);
+                Game.endGame();
             
             } else if (rock._bottom > 20) {
                 rock._width = parseInt(starStyle.width.replace("px", ""), 10)
