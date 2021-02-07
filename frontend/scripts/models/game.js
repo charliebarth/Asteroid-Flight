@@ -1,6 +1,23 @@
 class Game {
-    constructor () {
+    // constructor () {
+        
+    // }
 
+    createGame (currentUserId) {
+        //api.postRound(currentUserId);
+        this._userId = currentUserId;
+        this.postGame
+    }
+
+    postGame = () => {
+        api.postRound(this._userId)
+        .then(roundData => {
+          this.updateInfo(roundData.data)
+        })
+    }
+    
+    updateInfo = data => {
+        this._id = data.id
     }
 
     static launchGame() { 
@@ -47,5 +64,6 @@ class Game {
         asteroidArray.forEach(function(star){
             clearInterval(star._move);
         });
+
     }
 }
