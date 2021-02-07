@@ -6,16 +6,16 @@ class Game {
     createGame (currentUserId) {
         //api.postRound(currentUserId);
         this._userId = currentUserId;
-        this.postGame
+        this.postGame();
     }
 
-    postGame = () => {
+    postGame () {
         api.postRound(this._userId)
         .then(roundData => {
           this.updateInfo(roundData.data)
-        })
-        game.style.display = 'block';
-        Game.launchGame();
+        });
+
+        Game.startButton();
     }
     
     updateInfo = data => {
@@ -24,10 +24,20 @@ class Game {
         currentGame = this
     }
 
-    static launchGame() { 
-        let currentScore = 0;
+    static startButton (){
+        startDiv.style.display = 'block';
+        const startButton = document.getElementById(`start-button`)
+        startButton.addEventListener("click", () => {
+            Game.launchGame
+            startDiv.style.display = 'none';
+        });
+    }
+
+    static launchGame() {
+        gameDiv.style.display = 'block'; 
         let i = 1;
         const keysPressed = {};
+        currentGame.keepScore();
 
         while (i <= 7) { 
             let star = new Asteroid(document.getElementById(`asteroid${i}`));
@@ -35,10 +45,6 @@ class Game {
             asteroidArray.push(star);
             i++
         }
-        currentGame._scoreTime = setInterval (function () {
-            currentScore += 100
-            currentGame._score = currentScore
-        }, 1000);
         
         document.addEventListener('keyup', (x) => {
             delete keysPressed[x.key];
@@ -70,6 +76,14 @@ class Game {
         });
     }
 
+    keepScore () {
+        let currentScore = 0;
+        this._scoreTime = setInterval (function () {
+            currentScore += 100
+            currentGame._score = currentScore
+        }, 1000);
+    }
+
     static endGame (){
         if (num === 7) {
             clearInterval(currentGame._scoreTime);
@@ -77,7 +91,6 @@ class Game {
             .then(roundData => {
                 currentGame.updateInfo(roundData.data)
             });
-        }
-        
+        } 
     }
 }
