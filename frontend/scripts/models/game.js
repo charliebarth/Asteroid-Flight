@@ -18,6 +18,8 @@ class Game {
     
     updateInfo = data => {
         this._id = data.id
+        this._score = data.score
+        currentGame = this
     }
 
     static launchGame() { 
@@ -63,6 +65,10 @@ class Game {
     static endGame (){
         asteroidArray.forEach(function(star){
             clearInterval(star._move);
+            api.updateRound(currentGame._id, currentGame._score)
+            .then(roundData => {
+                currentGame.updateInfo(roundData.data)
+              })
         });
 
     }
