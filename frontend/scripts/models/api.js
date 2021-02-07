@@ -16,7 +16,7 @@ class API {
         }
     }
 
-    catchError = response => response.json()
+    catchError = response => response.json();
 
     headers = {"Accepts": "application/json", "Content-Type": "application/json"}
 
@@ -36,7 +36,7 @@ class API {
         return fetch(this.roundURL, {
           method: "POST",
           headers: this.headers,
-          body: JSON.stringify({round: { user_id: userId } })
+          body: JSON.stringify({round: {user_id: userId } })
         })
         .then(this.parseJSON)
     }
