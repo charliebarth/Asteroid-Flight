@@ -1,18 +1,18 @@
 class RoundsController < ApplicationController
-  before_action :find_score, only: [:show, :update]
+  before_action :find_score, only: [:update]
 
     def create
         round = Round.create(round_params)
         render json: RoundSerializer.new(round).serializable_hash
     end
 
-    def show
-      if @round
-        render json: RoundSerializer.new(@round)
-      else
-        render json: {error: "Sorry, there is no round with that ID", status: 400}, status: 400
-      end
-    end
+    # def show
+    #   if @round
+    #     render json: RoundSerializer.new(@round)
+    #   else
+    #     render json: {error: "Sorry, there is no round with that ID", status: 400}, status: 400
+    #   end
+    # end
   
     def update
       if @round
