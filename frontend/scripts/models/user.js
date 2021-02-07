@@ -8,11 +8,12 @@ class User {
     // }
 
     postUser = username => {
-        API.postUser(username)
+        api.postUser(username)
         .then(userData => {
           this.updateInfo(userData.data)
         })
-      }
+        
+    }
     
     updateInfo = data => {
         this.id = data.id

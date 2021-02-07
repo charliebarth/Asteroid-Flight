@@ -1,3 +1,5 @@
+const api = API.startWithPort()
+let currentGame = ""
 const game = document.getElementById("game")
 const asteroidArray = []
 const userForm = document.getElementById("username-form")
