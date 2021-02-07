@@ -27,7 +27,9 @@ class Asteroid {
             if (rock._collided === true) {
                 objPlace.style.bottom = `${rock._bottom - 20}px`
                 clearInterval(rock._move);
-                Game.endGame();
+                Asteroid.stopAsteroid();
+                num += 1;
+                Game.endGame
             
             } else if (rock._bottom > 20) {
                 rock._width = parseInt(starStyle.width.replace("px", ""), 10)
@@ -48,6 +50,13 @@ class Asteroid {
                 movement = Helpers.getRndInteger(4, 7);
             }
         }, 100);
+    }
+
+    static stopAsteroid (){
+        asteroidArray.forEach(function(currentStar){
+            clearInterval(currentStar._move);
+            
+        });
     }
 }
 
