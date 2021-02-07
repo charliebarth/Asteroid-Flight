@@ -8,12 +8,13 @@ class Game {
         while (i <= 7) { 
             let star = new Asteroid(document.getElementById(`asteroid${i}`));
             star.moveAsteroid();
+            asteroidArray.push(star);
             i++
         }
         const keysPressed = {};
-        
-        document.addEventListener('keyup', (e) => {
-            delete keysPressed[e.key];
+
+        document.addEventListener('keyup', (x) => {
+            delete keysPressed[x.key];
         })
 
         document.addEventListener('keydown', (e) => {
@@ -39,6 +40,12 @@ class Game {
             } else if (e.key === "ArrowDown"){
                 Spaceship.moveDodgerDown();
             }
+        });
+    }
+
+    static endGame (){
+        asteroidArray.forEach(function(star){
+            clearInterval(star._move);
         });
     }
 }
