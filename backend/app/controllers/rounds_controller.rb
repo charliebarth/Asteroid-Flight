@@ -15,7 +15,7 @@ class RoundsController < ApplicationController
     def show
       if @round
         # options = {include: [:user]}
-        render json: ScoreSerializer.new(@round)
+        render json: RoundSerializer.new(@round)
       else
         render json: {error: "Sorry, there is no round with that ID", status: 400}, status: 400
       end
@@ -23,7 +23,7 @@ class RoundsController < ApplicationController
   
     def update
       if @round
-        if @round.update(rounds_params)
+        if @round.update(round_params)
           render json: RoundSerializer.new(@round)
         else
           render json: {error: @round.errors.full_messages, status: 400}, status: 400
@@ -38,7 +38,7 @@ class RoundsController < ApplicationController
     private
 
     def find_score
-      @round = Score.find_by_id(params[:id])
+      @round = Round.find_by_id(params[:id])
     end
     
     def round_params
