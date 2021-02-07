@@ -5,6 +5,8 @@
   <script defer src="scripts/models/asteroid.js"></script>
   <script defer src="scripts/models/game.js"></script>
   <script defer src="scripts/models/helpers.js"></script>
+  <script defer src="scripts/models/user.js"></script>
+  <script defer src="scripts/models/api.js"></script>
   <script defer src="scripts/index.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +15,13 @@
   <link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 <body>
+  <div id="login">
+    <form id="username-form">
+      <h2>Type your username and press <span class="red">Enter</span></h2>
+      <input id="username-input" type="text" value="">
+      <!-- <input type="submit" name="submit" id="submit"> -->
+    </form>
+  </div>
   <div id="game">
     <img id="spaceship" src="assets/spaceship3.png" style="bottom: 50px; left: 400px;" alt="alternatetext">
     <img id="asteroid1" src="assets/asteroid1.png" style="bottom: 450px; left: 40px;" alt="alternatetext">

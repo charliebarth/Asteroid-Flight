@@ -1,19 +1,13 @@
 const game = document.getElementById("game")
 const asteroidArray = []
-document.addEventListener("DOMContentLoaded", function(){
-    game.style.display = 'none'; 
-//     Welcome.loop();
+const userForm = document.getElementById("username-form")
 
-//     usernameInput.focus()
-  
-//     usernameForm.addEventListener('submit', (event) => {
-//       event.preventDefault()
-//       Welcome.submitUsername(event)
-//       Menu.songMenu()
-  
-//       resetCounter()
-//     })
+document.addEventListener("DOMContentLoaded", function(){
+    game.style.display = 'none';
+
 });
+
+userForm.addEventListener("submit", User.login);
 
 // document.addEventListener('keyup', (e) => {
 //     delete keysPressed[e.key];
@@ -41,7 +35,7 @@ document.addEventListener('keydown', (e) => {
     //     Spaceship.moveDodgerUp();
     // } else if (e.key === "ArrowDown"){
     //     Spaceship.moveDodgerDown();
-    if (e.key === "Enter"){
+    if (e.key === "W"){
         game.style.display = 'block';
         Game.launchGame();
     }
