@@ -14,6 +14,8 @@ class Game {
         .then(roundData => {
           this.updateInfo(roundData.data)
         })
+        game.style.display = 'block';
+        Game.launchGame();
     }
     
     updateInfo = data => {
@@ -23,15 +25,21 @@ class Game {
     }
 
     static launchGame() { 
-        let i = 1
+        let currentScore = 0;
+        let i = 1;
+        const keysPressed = {};
+
         while (i <= 7) { 
             let star = new Asteroid(document.getElementById(`asteroid${i}`));
             star.moveAsteroid();
             asteroidArray.push(star);
             i++
         }
-        const keysPressed = {};
-
+        currentGame._scoreTime = setInterval (function () {
+            currentScore += 100
+            currentGame._score = currentScore
+        }, 1000);
+        
         document.addEventListener('keyup', (x) => {
             delete keysPressed[x.key];
         })
@@ -63,13 +71,13 @@ class Game {
     }
 
     static endGame (){
-        asteroidArray.forEach(function(star){
-            clearInterval(star._move);
+        if (num === 7) {
+            clearInterval(currentGame._scoreTime);
             api.updateRound(currentGame._id, currentGame._score)
             .then(roundData => {
                 currentGame.updateInfo(roundData.data)
-              })
-        });
-
+            });
+        }
+        
     }
 }
