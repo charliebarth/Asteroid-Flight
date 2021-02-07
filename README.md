@@ -6,7 +6,7 @@ Asteroid Flight is a javascript and rails app. It has a rails api backend to cre
 
 To install the app simply fork and clone this repository from Github onto your local device.
 
-To setup the app, change directory into the backend run bundle install, 'rails db:migrate', 'rails db:seed' and then run 'rails s'. Then change directory into the frontend and open index.html. Everything should now be set up!
+To setup the app, change directory into the backend and run bundle install, 'rails db:migrate', and then run 'rails s'. Then change directory into the frontend and open index.html. Everything should now be set up!
 
 # Contibutor's Guide
 
