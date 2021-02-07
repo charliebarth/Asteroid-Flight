@@ -46,8 +46,8 @@ class API {
         .then(this.parseJSON)
     }
 
-    fetchUser = () => { 
-        return fetch(this.userURL)
+    fetchUser = id => { 
+        return fetch(this.userURL + `/${id}`)
         .then(this.parseJSON)
     }
     
