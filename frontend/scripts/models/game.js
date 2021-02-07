@@ -4,7 +4,7 @@ class Game {
     // }
 
     createGame (currentUserId) {
-        //api.postRound(currentUserId);
+        api.postRound(currentUserId);
         this._userId = currentUserId;
         this.postGame();
     }
@@ -14,26 +14,33 @@ class Game {
         .then(roundData => {
           this.updateInfo(roundData.data)
         });
-
-        Game.startButton();
+        startDiv.style.display = 'block';
+        // Game.startButton();
     }
     
     updateInfo = data => {
+        // console.log(data)
+        // console.log(this)
         this._id = data.id
         this._score = data.score
         currentGame = this
+        // console.log(currentGame)
     }
 
     static startButton (){
-        startDiv.style.display = 'block';
-        const startButton = document.getElementById(`start-button`)
-        startButton.addEventListener("click", () => {
-            Game.launchGame
-            startDiv.style.display = 'none';
-        });
+        // startDiv.style.display = 'block';
+        // const startButton = document.getElementById(`start-button`)
+        // startButton.addEventListener("click", () => {
+        //     Game.launchGame();
+        //     startDiv.style.display = 'none';
+        // });
+        startDiv.style.display = 'none';
+        Game.launchGame();
+        
     }
 
     static launchGame() {
+        console.log(currentGame);
         gameDiv.style.display = 'block'; 
         let i = 1;
         const keysPressed = {};
