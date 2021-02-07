@@ -12,7 +12,7 @@ class User {
         .then(userData => {
           this.updateInfo(userData.data)
         })
-        currentGame.createGame(this._id);
+        newGame.createGame(this._id);
     }
     
     updateInfo = data => {
@@ -25,8 +25,9 @@ class User {
         const user = new User;
         const username = document.getElementById("username-input").value;
         //if (user.postUser(username)) {userForm.style.display = "none"};
+        loginDiv.style.display = "none"
         user.postUser(username);
-        userForm.style.display = "none"
+
     }
 
 }
