@@ -4,7 +4,6 @@ class Helpers {
     }
 
     static findCollision(htmlElement, asteroid) {
-        const box = document.getElementById("GameOver");
        
         const ship = document.getElementById("spaceship");
         let rect1 = htmlElement.getBoundingClientRect();
@@ -17,8 +16,6 @@ class Helpers {
 
         if (overlap === false) {
             asteroid._collided = true
-            box.style.top = "200px"
-            box.style.right = "400px"
         }
     }
 }

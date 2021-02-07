@@ -1,10 +1,6 @@
 class Game {
-    // constructor () {
-        
-    // }
 
     createGame (currentUserId) {
-        api.postRound(currentUserId);
         this._userId = currentUserId;
         this.postGame();
     }
@@ -15,25 +11,15 @@ class Game {
           this.updateInfo(roundData.data)
         });
         startDiv.style.display = 'block';
-        // Game.startButton();
     }
     
     updateInfo = data => {
-        // console.log(data)
-        // console.log(this)
         this._id = data.id
         this._score = data.score
         currentGame = this
-        // console.log(currentGame)
     }
 
     static startButton (){
-        // startDiv.style.display = 'block';
-        // const startButton = document.getElementById(`start-button`)
-        // startButton.addEventListener("click", () => {
-        //     Game.launchGame();
-        //     startDiv.style.display = 'none';
-        // });
         startDiv.style.display = 'none';
         Game.launchGame();
         
@@ -98,6 +84,13 @@ class Game {
             .then(roundData => {
                 currentGame.updateInfo(roundData.data)
             });
+            document.getElementById("end-score").textContent = `${currentGame._score}`
+            setTimeout (function(){
+                gameDiv.style.display = 'none';
+                endDiv.style.display = "block";
+                
+            }, 500);
+            
         } 
     }
 }

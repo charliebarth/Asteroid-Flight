@@ -28,7 +28,6 @@ class Asteroid {
                 objPlace.style.bottom = `${rock._bottom - 20}px`
                 clearInterval(rock._move);
                 Asteroid.stopAsteroid();
-                //Game.endGame
             
             } else if (rock._bottom > 20) {
                 rock._width = parseInt(starStyle.width.replace("px", ""), 10)
@@ -54,7 +53,7 @@ class Asteroid {
     static stopAsteroid (){
         asteroidArray.forEach(function(currentStar){
             num++;
-            Game.endGame
+            Game.endGame();
             clearInterval(currentStar._move);
             
         });

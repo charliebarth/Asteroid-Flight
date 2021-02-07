@@ -5,16 +5,9 @@ class RoundsController < ApplicationController
         round = Round.create(round_params)
         render json: RoundSerializer.new(round).serializable_hash
     end
-  
-    # def index
-    #     rounds = Round.all
-    #     render json: RoundSerializer.new(rounds).serializable_hash
-    # end
-
 
     def show
       if @round
-        # options = {include: [:user]}
         render json: RoundSerializer.new(@round)
       else
         render json: {error: "Sorry, there is no round with that ID", status: 400}, status: 400
