@@ -64,12 +64,20 @@
 }
   
 #start {
-    color: white;
-    font-size: 4rem;
+    height: 550px;
+    width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
     position: relative;
-    text-decoration: none;
-    top: 4rem;
+    text-align: center;
+    background-image: url('../assets/stars_two.gif'); background-repeat:repeat;
 }
+
+#button {
+    position: absolute;
+    width: 210px;
+    height: 100px;
+  }
 
 #login {
     background-color: rgb(0, 0, 0);
