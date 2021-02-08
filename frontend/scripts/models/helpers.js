@@ -9,12 +9,12 @@ class Helpers {
         let rect1 = htmlElement.getBoundingClientRect();
         let rect2 = ship.getBoundingClientRect();
 
-        let overlap = (rect1.right < rect2.left || 
+        let overlap = !(rect1.right < rect2.left || 
             rect1.left > rect2.right || 
             rect1.bottom < rect2.top || 
             rect1.top > rect2.bottom)
 
-        if (overlap === false) {
+        if (overlap === true) {
             asteroid._collided = true
         }
     }
