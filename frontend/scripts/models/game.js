@@ -26,7 +26,7 @@ class Game {
     }
 
     static launchGame() {
-        console.log(currentGame);
+        //console.log(currentGame);
         gameDiv.style.display = 'block'; 
         let i = 1;
         const keysPressed = {};
@@ -80,12 +80,32 @@ class Game {
     static endGame (){
         if (num === 7) {
             clearInterval(currentGame._scoreTime);
+            
             api.updateRound(currentGame._id, currentGame._score)
             .then(roundData => {
                 currentGame.updateInfo(roundData.data)
             });
+
+            setTimeout(function (){
+                api.fetchRounds()
+                .then(scoreData => {
+                    const scores = scoreData.score
+                    tempScores = scores.split(',')
+                    tempScores[0] = tempScores[0].replace("[", "");
+                    tempScores[9] = tempScores[9].replace("]", "");
+                })
+            }, 100)
+
             document.getElementById("end-score").textContent = `${currentGame._score}`
+            
+            
             setTimeout (function(){
+                let list = document.getElementById("high-scores")
+                tempScores.forEach(score => {
+                    let entry = document.createElement('li');
+                    entry.appendChild(document.createTextNode(score));
+                    list.appendChild(entry); 
+                });
                 gameDiv.style.display = 'none';
                 endDiv.style.display = "block";
                 

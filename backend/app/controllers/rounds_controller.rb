@@ -6,13 +6,19 @@ class RoundsController < ApplicationController
         render json: RoundSerializer.new(round).serializable_hash
     end
 
-    # def show
-    #   if @round
-    #     render json: RoundSerializer.new(@round)
-    #   else
-    #     render json: {error: "Sorry, there is no round with that ID", status: 400}, status: 400
-    #   end
-    # end
+    def index
+      score_array = []
+      rounds = Round.all
+      
+      rounds.each do |round|
+        if round.score != nil
+          score_array << round.score
+        end
+      end
+
+      top_scores = score_array.sort.reverse.take(10)
+      render json: {score: "#{top_scores}"}
+    end
   
     def update
       if @round

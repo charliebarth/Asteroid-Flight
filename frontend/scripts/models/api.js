@@ -44,6 +44,7 @@ class API {
     fetchRounds = () => { 
         return fetch(this.roundURL)
         .then(this.parseJSON)
+
     }
 
     fetchUser = id => { 
